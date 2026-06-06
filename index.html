@@ -1,456 +1,475 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
-    <title>✨ old boii · surprise questions</title>  
-    <link rel="preconnect" href="https://fonts.googleapis.com">  
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">  
-    <style>  
-        * {  
-            margin: 0;  
-            padding: 0;  
-            box-sizing: border-box;  
-        }  body {  
-        min-height: 100vh;  
-        background: radial-gradient(circle at 30% 30%, #1a103a, #0a0721);  
-        font-family: 'Inter', system-ui, -apple-system, sans-serif;  
-        display: flex;  
-        align-items: center;  
-        justify-content: center;  
-        padding: 2rem;  
-        color: #fff;  
-    }  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>✨ old boii · surprise questions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at 30% 30%, #1a103a, #0a0721);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: #fff;
+        }
 
-    .prestige-card {  
-        background: rgba(18, 12, 38, 0.65);  
-        backdrop-filter: blur(30px) saturate(250%);  
-        -webkit-backdrop-filter: blur(30px) saturate(250%);  
-        border-radius: 70px;  
-        border: 1px solid rgba(210, 160, 255, 0.3);  
-        box-shadow: 0 60px 100px -20px #000, 0 0 0 1px rgba(255, 190, 200, 0.2) inset;  
-        width: 100%;  
-        max-width: 1000px;  
-        padding: 3rem 2.5rem;  
-        transition: 0.3s;  
-        z-index: 10;  
-        position: relative;  
-    }  
+        .prestige-card {
+            background: rgba(18, 12, 38, 0.65);
+            backdrop-filter: blur(30px) saturate(250%);
+            -webkit-backdrop-filter: blur(30px) saturate(250%);
+            border-radius: 70px;
+            border: 1px solid rgba(210, 160, 255, 0.3);
+            box-shadow: 0 60px 100px -20px #000, 0 0 0 1px rgba(255, 190, 200, 0.2) inset;
+            width: 100%;
+            max-width: 1000px;
+            padding: 3rem 2.5rem;
+            transition: 0.3s;
+            z-index: 10;
+            position: relative;
+        }
 
-    .stage {  
-        display: flex;  
-        flex-direction: column;  
-        align-items: center;  
-        justify-content: center;  
-        min-height: 500px;  
-        width: 100%;  
-        gap: 2.5rem;  
-    }  
+        .stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+            width: 100%;
+            gap: 2.5rem;
+        }
 
-    .question-lux {  
-        font-size: 3rem;  
-        font-weight: 600;  
-        line-height: 1.3;  
-        text-align: center;  
-        background: linear-gradient(145deg, #ffffff, #ffdbb5, #d4b5ff);  
-        -webkit-background-clip: text;  
-        background-clip: text;  
-        color: transparent;  
-        text-shadow: 0 0 40px rgba(170, 90, 255, 0.5);  
-        max-width: 900px;  
-    }  
+        .question-lux {
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.3;
+            text-align: center;
+            background: linear-gradient(145deg, #ffffff, #ffdbb5, #d4b5ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 40px rgba(170, 90, 255, 0.5);
+            max-width: 900px;
+        }
 
-    .btn-velvet {  
-        border: none;  
-        background: rgba(35, 25, 60, 0.8);  
-        backdrop-filter: blur(14px);  
-        -webkit-backdrop-filter: blur(14px);  
-        border: 1px solid rgba(255, 160, 200, 0.45);  
-        padding: 1.2rem 3rem;  
-        border-radius: 120px;  
-        font-size: 1.8rem;  
-        font-weight: 500;  
-        color: #f7ebff;  
-        cursor: pointer;  
-        box-shadow: 0 25px 40px -18px #000;  
-        transition: all 0.2s ease;  
-        min-width: 200px;  
-        letter-spacing: 0.5px;  
-    }  
+        .btn-velvet {
+            border: none;
+            background: rgba(35, 25, 60, 0.8);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 160, 200, 0.45);
+            padding: 1.2rem 3rem;
+            border-radius: 120px;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #f7ebff;
+            cursor: pointer;
+            box-shadow: 0 25px 40px -18px #000;
+            transition: all 0.2s ease;
+            min-width: 200px;
+            letter-spacing: 0.5px;
+        }
 
-    .btn-velvet:hover {  
-        background: rgba(70, 45, 110, 0.9);  
-        border-color: #ffb0d0;  
-        transform: scale(1.02) translateY(-3px);  
-    }  
+        .btn-velvet:hover {
+            background: rgba(70, 45, 110, 0.9);
+            border-color: #ffb0d0;
+            transform: scale(1.02) translateY(-3px);
+        }
 
-    .btn-gold {  
-        background: rgba(150, 100, 50, 0.4);  
-        border: 1px solid #ffbc6e;  
-        color: #fffae6;  
-        font-weight: 600;  
-        padding: 1.5rem 5rem;  
-        font-size: 2rem;  
-    }  
+        .btn-gold {
+            background: rgba(150, 100, 50, 0.4);
+            border: 1px solid #ffbc6e;
+            color: #fffae6;
+            font-weight: 600;
+            padding: 1.5rem 5rem;
+            font-size: 2rem;
+        }
 
-    /* Button container - relative positioning for absolute children */  
-    .btn-stage {  
-        position: relative;  
-        min-height: 220px;  
-        width: 100%;  
-        display: flex;  
-        justify-content: center;  
-        align-items: center;  
-    }  
+        .btn-stage {
+            position: relative;
+            min-height: 220px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    /* Moving button - absolute positioning so it can jump anywhere */  
-    .moving-btn {  
-        position: absolute;  
-        transition: left 0.2s ease, top 0.2s ease;  
-        cursor: pointer;  
-        z-index: 10;  
-    }  
+        .moving-btn {
+            position: absolute;
+            transition: left 0.2s ease, top 0.2s ease;
+            cursor: pointer;
+            z-index: 10;
+        }
 
-    /* Static button (correct one) stays in normal flow */  
-    .static-btn {  
-        position: relative;  
-        margin: 0 auto;  
-    }  
+        .static-btn {
+            position: relative;
+            margin: 0 auto;
+        }
 
-    .premium-img {  
-        max-width: 100%;  
-        width: 700px;  
-        border-radius: 48px;  
-        box-shadow: 0 40px 60px -20px black;  
-        border: 1px solid rgba(255, 200, 150, 0.6);  
-        margin-bottom: 2rem;  
-    }  
+        .premium-img {
+            max-width: 100%;
+            width: 700px;
+            border-radius: 48px;
+            box-shadow: 0 40px 60px -20px black;
+            border: 1px solid rgba(255, 200, 150, 0.6);
+            margin-bottom: 2rem;
+        }
 
-    .img-caption {  
-        font-size: 1.8rem;  
-        color: #d2bbff;  
-        margin-bottom: 2.5rem;  
-        text-align: center;  
-    }  
+        .img-caption {
+            font-size: 1.8rem;
+            color: #d2bbff;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
 
-    .joke-lux {  
-        font-size: 3rem;  
-        font-weight: 500;  
-        text-align: center;  
-        background: linear-gradient(145deg, #ffedb5, #ffc0d0, #dbb5ff);  
-        -webkit-background-clip: text;  
-        background-clip: text;  
-        color: transparent;  
-        line-height: 1.4;  
-        margin-bottom: 2rem;  
-    }  
+        .joke-lux {
+            font-size: 3rem;
+            font-weight: 500;
+            text-align: center;
+            background: linear-gradient(145deg, #ffedb5, #ffc0d0, #dbb5ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.4;
+            margin-bottom: 2rem;
+        }
 
-    .video-overlay {  
-        position: fixed;  
-        top: 0;  
-        left: 0;  
-        width: 100%;  
-        height: 100%;  
-        background: #000;  
-        z-index: 2000;  
-        display: flex;  
-        align-items: center;  
-        justify-content: center;  
-    }  
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .prank-video {  
-        width: 100%;  
-        height: 100%;  
-        object-fit: cover;  
-        pointer-events: none;  
-    }  
+        .prank-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
 
-    @media (max-width: 1024px) {  
-        body::before {  
-            content: "✨ This experience is optimized for laptop/desktop. Please open on a computer. ✨";  
-            position: fixed;  
-            top: 0;  
-            left: 0;  
-            width: 100%;  
-            height: 100%;  
-            background: #0a0721;  
-            color: #ffdbb5;  
-            display: flex;  
-            align-items: center;  
-            justify-content: center;  
-            text-align: center;  
-            padding: 2rem;  
-            font-size: 1.8rem;  
-            z-index: 9999;  
-            font-weight: 600;  
-        }  
-        .prestige-card {  
-            display: none;  
-        }  
-    }  
+        /* FIX: Only show mobile optimization on small screens, not hide everything */
+        @media (max-width: 650px) {
+            .btn-velvet {
+                padding: 1rem 2rem;
+                font-size: 1.4rem;
+                min-width: 150px;
+            }
+            .question-lux {
+                font-size: 2.2rem;
+            }
+            .prestige-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="prestige-card" id="mainCard">
+        <div class="stage" id="contentStage"></div>
+    </div>
+    <script>
+    const TREE_WEBSITE_URL = "https://YOUR_USERNAME.github.io/birthday-tree/";
+    const VIDEO_FILE = "video.mp4";
+    const IMAGE_FILE = "image.jpg";
 
-    @media (max-width: 650px) {  
-        .btn-velvet {  
-            padding: 1rem 2rem;  
-            font-size: 1.4rem;  
-            min-width: 150px;  
-        }  
-        .question-lux {  
-            font-size: 2.2rem;  
-        }  
-        .prestige-card {  
-            padding: 2rem 1.5rem;  
-        }  
-    }  
-</style>
+    let step = 1;
+    const content = document.getElementById('contentStage');
+    let activeVideo = null;
 
-</head>  
-<body>  
-    <div class="prestige-card" id="mainCard">  
-        <div class="stage" id="contentStage"></div>  
-    </div>  <script>  
-    // ==================== CONFIGURATION ====================  
-    const TREE_WEBSITE_URL = "https://shubhamprajapati-2004.github.io/Birthday-tree-/";  
-    const VIDEO_FILE = "AQMolTvy69AaS3hMvOOfArgBPRO8UFwQ2WBpKeaYEe90RwFz2O8j_M1UNSb8RlFK4g7A59vpeuzEsqrzZiJVrZg7.mp4" ;  
-    const IMAGE_FILE = "25995455d4d2cfec25c970bd882b187e.jpg" ;  
+    // FIX: Use objects to maintain references
+    let wrongCounters = {
+        q1: { value: 0, popupShown: false },
+        q2: { value: 0, popupShown: false },
+        q3: { value: 0, popupShown: false }
+    };
 
-    // ==================== APP STATE ====================  
-    let step = 1;  
-    const content = document.getElementById('contentStage');  
-    let activeVideo = null;  
+    function render() {
+        if (step !== 5) removeVideo();
+        content.innerHTML = getHtml(step);
+        setTimeout(() => attachBehaviors(step), 50);
+    }
 
-    let wrongCount1 = 0, wrongCount2 = 0, wrongCount3 = 0;  
-    let popupShown1 = false, popupShown2 = false, popupShown3 = false;  
+    function getHtml(s) {
+        switch(s) {
+            case 1: return `
+                <div class="question-lux">Hey… are you my old boii?</div>
+                <div class="btn-stage" id="panel1">
+                    <button class="btn-velvet moving-btn" id="yes1">Yes</button>
+                    <button class="btn-velvet static-btn" id="no1">No</button>
+                </div>
+            `;
+            case 2: return `
+                <div class="question-lux">Ok so you are the new Sharoon — the one and only busiest girl in this universe</div>
+                <div class="btn-stage" id="panel2">
+                    <button class="btn-velvet static-btn" id="yes2">Yes</button>
+                    <button class="btn-velvet moving-btn" id="no2">No</button>
+                </div>
+            `;
+            case 3: return `
+                <div class="question-lux">Today is your birthday correct?</div>
+                <div class="btn-stage" id="panel3">
+                    <button class="btn-velvet static-btn" id="yes3">Yes</button>
+                    <button class="btn-velvet moving-btn" id="no3">No</button>
+                </div>
+            `;
+            case 4: return `
+                <img src="${IMAGE_FILE}" class="premium-img" onerror="this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1000&auto=format&fit=crop'">
+                <div class="img-caption">✨ Click next, I have a surprise for you.</div>
+                <button class="btn-velvet btn-gold" id="nextToVideo">Next</button>
+            `;
+            case 5: return `<div style="color:#c3b3ff; font-size:2rem;">✨ loading prank...</div>`;
+            case 6: return `
+                <div class="joke-lux">Just kidding 😄<br>I have a real surprise for you.</div>
+                <button class="btn-velvet btn-gold" id="nextToFinal">Next</button>
+            `;
+            default: return `<div>✨</div>`;
+        }
+    }
 
-    function render() {  
-        if (step !== 5) removeVideo();  
-        content.innerHTML = getHtml(step);  
-        setTimeout(() => attachBehaviors(step), 50);  
-    }  
+    function attachBehaviors(s) {
+        if (s === 1) setupQ1();
+        if (s === 2) setupQ2();
+        if (s === 3) setupQ3();
+        if (s === 4) setupStep4();
+        if (s === 5) setupStep5();
+        if (s === 6) setupStep6();
+    }
 
-    function getHtml(s) {  
-        switch(s) {  
-            case 1: return `  
-                <div class="question-lux">Hey… are you my old boii?</div>  
-                <div class="btn-stage" id="panel1">  
-                    <button class="btn-velvet moving-btn" id="yes1">Yes</button>  
-                    <button class="btn-velvet static-btn" id="no1">No</button>  
-                </div>  
-            `;  
-            case 2: return `  
-                <div class="question-lux">Ok so you are the new Sharoon — the one and only busiest girl in this universe</div>  
-                <div class="btn-stage" id="panel2">  
-                    <button class="btn-velvet static-btn" id="yes2">Yes</button>  
-                    <button class="btn-velvet moving-btn" id="no2">No</button>  
-                </div>  
-            `;  
-            case 3: return `  
-                <div class="question-lux">Today is your birthday correct?</div>  
-                <div class="btn-stage" id="panel3">  
-                    <button class="btn-velvet static-btn" id="yes3">Yes</button>  
-                    <button class="btn-velvet moving-btn" id="no3">No</button>  
-                </div>  
-            `;  
-            case 4: return `  
-                <img src="${IMAGE_FILE}" class="premium-img" onerror="this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1000&auto=format&fit=crop'">  
-                <div class="img-caption">✨ Click next, I have a surprise for you.</div>  
-                <button class="btn-velvet btn-gold" id="nextToVideo">Next</button>  
-            `;  
-            case 5: return `<div style="color:#c3b3ff; font-size:2rem;">✨ loading prank...</div>`;  
-            case 6: return `  
-                <div class="joke-lux">Just kidding 😄<br>I have a real surprise for you.</div>  
-                <button class="btn-velvet btn-gold" id="nextToFinal">Next</button>  
-            `;  
-            default: return `<div>✨</div>`;  
-        }  
-    }  
+    function removeVideo() {
+        if (activeVideo) {
+            activeVideo.remove();
+            activeVideo = null;
+        }
+    }
 
-    function attachBehaviors(s) {  
-        if (s === 1) setupQ1();  
-        if (s === 2) setupQ2();  
-        if (s === 3) setupQ3();  
-        if (s === 4) setupStep4();  
-        if (s === 5) setupStep5();  
-        if (s === 6) setupStep6();  
-    }  
+    function setupMovingButton(movingBtn, correctBtn, panelId, counterObj, alertMessage) {
+        const panel = document.getElementById(panelId);
+        if (!panel || !movingBtn || !correctBtn) return;
 
-    function removeVideo() {  
-        if (activeVideo) {  
-            activeVideo.remove();  
-            activeVideo = null;  
-        }  
-    }  
+        const getNonOverlappingPosition = () => {
+            const panelRect = panel.getBoundingClientRect();
+            const correctRect = correctBtn.getBoundingClientRect();
+            
+            const movingW = movingBtn.offsetWidth;
+            const movingH = movingBtn.offsetHeight;
+            const correctW = correctBtn.offsetWidth;
+            const correctH = correctBtn.offsetHeight;
+            
+            const correctLeft = correctRect.left - panelRect.left;
+            const correctTop = correctRect.top - panelRect.top;
+            
+            const maxLeft = Math.max(15, panelRect.width - movingW - 15);
+            const maxTop = Math.max(15, panelRect.height - movingH - 15);
+            
+            let attempts = 0;
+            let newLeft, newTop;
+            let overlapping;
+            
+            do {
+                newLeft = Math.min(maxLeft, Math.max(15, Math.random() * maxLeft));
+                newTop = Math.min(maxTop, Math.max(15, Math.random() * maxTop));
+                
+                overlapping = !(newLeft + movingW < correctLeft || 
+                               newLeft > correctLeft + correctW || 
+                               newTop + movingH < correctTop || 
+                               newTop > correctTop + correctH);
+                attempts++;
+                if (attempts > 150) break;
+            } while (overlapping);
+            
+            return { left: newLeft, top: newTop };
+        };
+        
+        const positionRandomly = () => {
+            const { left, top } = getNonOverlappingPosition();
+            movingBtn.style.left = left + 'px';
+            movingBtn.style.top = top + 'px';
+            movingBtn.style.position = 'absolute';
+        };
+        
+        correctBtn.style.position = 'relative';
+        correctBtn.style.margin = '0 auto';
+        correctBtn.style.display = 'inline-block';
+        
+        movingBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            
+            if (counterObj.value < 3) {
+                counterObj.value++;
+            }
+            
+            positionRandomly();
+            
+            if (counterObj.value === 3 && !counterObj.popupShown) {
+                counterObj.popupShown = true;
+                alert(alertMessage);
+            }
+        });
+        
+        movingBtn.addEventListener('mouseenter', () => {
+            if (counterObj.value < 3 || !counterObj.popupShown) {
+                positionRandomly();
+            }
+        });
+        
+        setTimeout(() => {
+            positionRandomly();
+            correctBtn.style.display = 'inline-block';
+        }, 30);
+        
+        window.addEventListener('resize', () => {
+            if (document.getElementById(panelId) && document.getElementById(movingBtn.id)) {
+                positionRandomly();
+            }
+        });
+    }
 
-    // ========== FUNCTION TO MOVE BUTTON WITHOUT OVERLAPPING ==========  
-    function setupMovingButton(movingBtn, correctBtn, panelId, wrongCounter, popupShownFlag, alertMessage) {  
-        const panel = document.getElementById(panelId);  
-        if (!panel || !movingBtn || !correctBtn) return;  
+    function setupQ1() {
+        const yesBtn = document.getElementById('yes1');
+        const noBtn = document.getElementById('no1');
+        if (!yesBtn || !noBtn) return;
+        
+        setupMovingButton(yesBtn, noBtn, 'panel1', wrongCounters.q1, 
+            "⚠️ Ab sahi answer click kar! ⚠️\n\n(ab to man ja sake tu badal gayi he harami)");
+        
+        noBtn.addEventListener('click', () => {
+            if (step === 1) {
+                step = 2;
+                render();
+            }
+        });
+    }
 
-        // Function to get random position that doesn't overlap with correct button  
-        const getNonOverlappingPosition = () => {  
-            const panelRect = panel.getBoundingClientRect();  
-            const movingRect = movingBtn.getBoundingClientRect();  
-            const correctRect = correctBtn.getBoundingClientRect();  
-              
-            const movingW = movingBtn.offsetWidth;  
-            const movingH = movingBtn.offsetHeight;  
-            const correctW = correctBtn.offsetWidth;  
-            const correctH = correctBtn.offsetHeight;  
-              
-            // Get correct button's position relative to panel  
-            const correctLeft = correctRect.left - panelRect.left;  
-            const correctTop = correctRect.top - panelRect.top;  
-              
-            // Boundaries inside panel (leave 15px margin)  
-            const maxLeft = Math.max(15, panelRect.width - movingW - 15);  
-            const maxTop = Math.max(15, panelRect.height - movingH - 15);  
-              
-            let attempts = 0;  
-            let newLeft, newTop;  
-            let overlapping;  
-              
-            do {  
-                newLeft = Math.min(maxLeft, Math.max(15, Math.random() * maxLeft));  
-                newTop = Math.min(maxTop, Math.max(15, Math.random() * maxTop));  
-                  
-                // Check overlap with correct button  
-                overlapping = !(newLeft + movingW < correctLeft ||   
-                               newLeft > correctLeft + correctW ||   
-                               newTop + movingH < correctTop ||   
-                               newTop > correctTop + correctH);  
-                attempts++;  
-                if (attempts > 150) break; // fallback  
-            } while (overlapping);  
-              
-            return { left: newLeft, top: newTop };  
-        };  
-          
-        // Position the moving button randomly without overlap  
-        const positionRandomly = () => {  
-            const { left, top } = getNonOverlappingPosition();  
-            movingBtn.style.left = left + 'px';  
-            movingBtn.style.top = top + 'px';  
-            movingBtn.style.position = 'absolute';  
-        };  
-          
-        // Position correct button centrally (static)  
-        correctBtn.style.position = 'relative';  
-        correctBtn.style.margin = '0 auto';  
-        correctBtn.style.display = 'inline-block';  
-          
-        // Move on click (wrong attempt)  
-        movingBtn.addEventListener('click', (e) => {  
-            e.stopPropagation();  
-              
-            // Increment wrong counter  
-            if (wrongCounter < 3) {  
-                wrongCounter++;  
-            }  
-              
-            // Move to new random position  
-            positionRandomly();  
-              
-            // Show popup after 3 wrong clicks (only once)  
-            if (wrongCounter === 3 && !popupShownFlag) {  
-                popupShownFlag = true;  
-                alert(alertMessage);  
-            }  
-        });  
-          
-        // Also move on hover for extra playfulness  
-        movingBtn.addEventListener('mouseenter', () => {  
-            if (wrongCounter < 3 || !popupShownFlag) {  
-                positionRandomly();  
-            }  
-        });  
-          
-        // Initial positioning  
-        setTimeout(() => {  
-            positionRandomly();  
-            // Also center the panel display  
-            correctBtn.style.display = 'inline-block';  
-        }, 30);  
-          
-        // Reposition on window resize  
-        window.addEventListener('resize', () => {  
-            if (document.getElementById(panelId) && document.getElementById(movingBtn.id)) {  
-                positionRandomly();  
-            }  
-        });  
-    }  
+    function setupQ2() {
+        const yesBtn = document.getElementById('yes2');
+        const noBtn = document.getElementById('no2');
+        if (!yesBtn || !noBtn) return;
+        
+        setupMovingButton(noBtn, yesBtn, 'panel2', wrongCounters.q2,
+            "⚠️ Bas ab yes pe click kar! ⚠️\n\n(note like me bola busyest he to he bas ab yes pe click kar chal)");
+        
+        yesBtn.addEventListener('click', () => {
+            if (step === 2) {
+                step = 3;
+                render();
+            }
+        });
+    }
 
-    // QUESTION 1: Yes moves, No is correct  
-    function setupQ1() {  
-        const yesBtn = document.getElementById('yes1');  
-        const noBtn = document.getElementById('no1');  
-        if (!yesBtn || !noBtn) return;  
-          
-        let wrongCounter = 0;  
-        let popupFlag = false;  
-          
-        setupMovingButton(yesBtn, noBtn, 'panel1', wrongCounter, popupFlag,   
-            "⚠️ Ab sahi answer click kar! ⚠️\n\n(ab to man ja sake tu badal gayi he harami)");  
-          
-        // Correct click proceeds to next question  
-        noBtn.addEventListener('click', () => {  
-            if (step === 1) {  
-                step = 2;  
-                render();  
-            }  
-        });  
-    }  
+    function setupQ3() {
+        const yesBtn = document.getElementById('yes3');
+        const noBtn = document.getElementById('no3');
+        if (!yesBtn || !noBtn) return;
+        
+        setupMovingButton(noBtn, yesBtn, 'panel3', wrongCounters.q3,
+            "⚠️ Bas next pe click kar yarr plz! ⚠️\n\n(ha bas mera birthday he bas next pe click kar yarr plz)");
+        
+        yesBtn.addEventListener('click', () => {
+            if (step === 3) {
+                step = 4;
+                render();
+            }
+        });
+    }
 
-    // QUESTION 2: No moves, Yes is correct  
-    function setupQ2() {  
-        const yesBtn = document.getElementById('yes2');  
-        const noBtn = document.getElementById('no2');  
-        if (!yesBtn || !noBtn) return;  
-          
-        let wrongCounter = 0;  
-        let popupFlag = false;  
-          
-        setupMovingButton(noBtn, yesBtn, 'panel2', wrongCounter, popupFlag,  
-            "⚠️ Bas ab yes pe click kar! ⚠️\n\n(note like me bola busyest he to he bas ab yes pe click kar chal)");  
-          
-        yesBtn.addEventListener('click', () => {  
-            if (step === 2) {  
-                step = 3;  
-                render();  
-            }  
-        });  
-    }  
+    function setupStep4() {
+        const nextBtn = document.getElementById('nextToVideo');
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                step = 5;
+                render();
+            });
+        }
+    }
 
-    // QUESTION 3: No moves, Yes is correct  
-    function setupQ3() {  
-        const yesBtn = document.getElementById('yes3');  
-        const noBtn = document.getElementById('no3');  
-        if (!yesBtn || !noBtn) return;  
-          
-        let wrongCounter = 0;  
-        let popupFlag = false;  
-          
-        setupMovingButton(noBtn, yesBtn, 'panel3', wrongCounter, popupFlag,  
-            "⚠️ Bas next pe click kar yarr plz! ⚠️\n\n(ha bas mera birthday he bas next pe click kar yarr plz)");  
-          
-        yesBtn.addEventListener('click', () => {  
-            if (step === 3) {  
-                step = 4;  
-                render();  
-            }  
-        });  
-    }  
+    function setupStep5() {
+        if (activeVideo) activeVideo.remove();
+        
+        const overlay = document.createElement('div');
+        overlay.className = 'video-overlay';
+        overlay.innerHTML = `
+            <video class="prank-video" autoplay playsinline muted="false" disablePictureInPicture controlslist="nodownload nofullscreen noremoteplayback">
+                <source src="${VIDEO_FILE}" type="video/mp4">
+            </video>
+        `;
+        document.body.appendChild(overlay);
+        activeVideo = overlay;
+        
+        const video = overlay.querySelector('video');
+        if (video) {
+            video.controls = false;
+            video.style.pointerEvents = 'none';
+            video.setAttribute('disablePictureInPicture', '');
+            video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback');
+            
+            const blockKeys = (e) => {
+                if (step === 5) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            };
+            document.addEventListener('keydown', blockKeys);
+            document.addEventListener('contextmenu', blockKeys);
+            
+            video.play().catch(e => console.warn("autoplay blocked?", e));
+            
+            video.onended = () => {
+                document.removeEventListener('keydown', blockKeys);
+                document.removeEventListener('contextmenu', blockKeys);
+                if (activeVideo) {
+                    activeVideo.remove();
+                    activeVideo = null;
+                }
+                step = 6;
+                render();
+            };
+            
+            setTimeout(() => {
+                if (step === 5 && activeVideo) {
+                    document.removeEventListener('keydown', blockKeys);
+                    document.removeEventListener('contextmenu', blockKeys);
+                    if (activeVideo) activeVideo.remove();
+                    activeVideo = null;
+                    step = 6;
+                    render();
+                }
+            }, 12000);
+        } else {
+            setTimeout(() => {
+                step = 6;
+                render();
+            }, 2000);
+        }
+    }
 
-    function setupStep4() {  
-        const nextBtn = document.getElementById('nextToVideo');  
-        if (nextBtn) {  
-            nextBtn.addEventListener('click', () => {  
-                step = 5;  
-                render();  
-            });  
-        }  
-    }  
+    function setupStep6() {
+        const finalBtn = document.getElementById('nextToFinal');
+        if (finalBtn) {
+            finalBtn.addEventListener('click', () => {
+                window.open(TREE_WEBSITE_URL, '_blank');
+            });
+        }
+    }
 
-    function setupStep5() {  
-        if (activeVideo) activeVideo.remove();  
-          
-        const overlay = document.createElement('div');  
+    render();
+    </script>
+</body>
+</html>
