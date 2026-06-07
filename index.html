@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            user-select: none; /* prevent accidental text selection */
         }
         body {
             min-height: 100vh;
@@ -35,6 +36,532 @@
             width: 100%;
             max-width: 1000px;
             padding: 3rem 2.5rem;
+            transition: 0.3s;
+            z-index: 10;
+            position: relative;
+        }
+
+        .stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+            width: 100%;
+            gap: 2.5rem;
+        }
+
+        .question-lux {
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.3;
+            text-align: center;
+            background: linear-gradient(145deg, #ffffff, #ffdbb5, #d4b5ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 40px rgba(170, 90, 255, 0.5);
+            max-width: 900px;
+        }
+
+        .btn-velvet {
+            border: none;
+            background: rgba(35, 25, 60, 0.8);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 160, 200, 0.45);
+            padding: 1.2rem 3rem;
+            border-radius: 120px;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #f7ebff;
+            cursor: pointer;
+            box-shadow: 0 25px 40px -18px #000;
+            transition: all 0.2s ease;
+            min-width: 200px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-velvet:hover {
+            background: rgba(70, 45, 110, 0.9);
+            border-color: #ffb0d0;
+            transform: scale(1.02) translateY(-3px);
+        }
+
+        .btn-gold {
+            background: rgba(150, 100, 50, 0.4);
+            border: 1px solid #ffbc6e;
+            color: #fffae6;
+            font-weight: 600;
+            padding: 1.5rem 5rem;
+            font-size: 2rem;
+        }
+
+        .btn-stage {
+            position: relative;
+            min-height: 220px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0,0,0,0.15);
+            border-radius: 80px;
+            padding: 2rem;
+        }
+
+        .moving-btn {
+            position: absolute;
+            transition: left 0.12s ease-out, top 0.12s ease-out;
+            cursor: pointer;
+            z-index: 20;
+            will-change: left, top;
+        }
+
+        .static-btn {
+            position: relative;
+            margin: 0 auto;
+            display: inline-block;
+        }
+
+        .premium-img {
+            max-width: 100%;
+            width: auto;
+            max-height: 400px;
+            border-radius: 48px;
+            box-shadow: 0 40px 60px -20px black;
+            border: 1px solid rgba(255, 200, 150, 0.6);
+            margin-bottom: 2rem;
+            object-fit: contain;
+        }
+
+        .img-caption {
+            font-size: 1.8rem;
+            color: #d2bbff;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .joke-lux {
+            font-size: 3rem;
+            font-weight: 500;
+            text-align: center;
+            background: linear-gradient(145deg, #ffedb5, #ffc0d0, #dbb5ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.4;
+            margin-bottom: 2rem;
+        }
+
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .prank-video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+        }
+
+        /* custom alert style for desktop smoothness (no native alert blocking in laptop, but we keep it) */
+        .custom-warning {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -30%);
+            background: #1e1a2f;
+            backdrop-filter: blur(32px);
+            border: 1px solid #ffbc6e;
+            border-radius: 60px;
+            padding: 1.5rem 2.5rem;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #ffefcf;
+            text-align: center;
+            z-index: 10000;
+            box-shadow: 0 40px 50px rgba(0,0,0,0.6);
+            animation: fadeGlow 0.3s ease;
+            pointer-events: none;
+            font-family: monospace;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes fadeGlow {
+            0% { opacity: 0; transform: translate(-50%, -20%);}
+            100% { opacity: 1; transform: translate(-50%, -30%);}
+        }
+
+        /* Mobile detection - shows on phones only */
+        @media (max-width: 768px) {
+            body::before {
+                content: "✨ This experience is optimized for laptop/desktop. Please open on a computer. ✨";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #0a0721;
+                color: #ffdbb5;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 2rem;
+                font-size: 1.8rem;
+                z-index: 9999;
+                font-weight: 600;
+            }
+            .prestige-card {
+                display: none;
+            }
+        }
+
+        /* Tablet optimization */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .prestige-card {
+                padding: 2rem 1.5rem;
+            }
+            .question-lux {
+                font-size: 2.5rem;
+            }
+            .btn-velvet {
+                padding: 1rem 2rem;
+                font-size: 1.5rem;
+            }
+            .premium-img {
+                max-height: 300px;
+            }
+        }
+
+        /* Mobile small screens */
+        @media (max-width: 480px) {
+            body::before {
+                font-size: 1.4rem;
+            }
+        }
+
+        button {
+            touch-action: manipulation;
+        }
+    </style>
+</head>
+<body>
+    <div class="prestige-card" id="mainCard">
+        <div class="stage" id="contentStage"></div>
+    </div>
+    <script>
+    // ==================== YOUR FILES ====================
+    const TREE_WEBSITE_URL = "https://shubhamprajapati-2004.github.io/Birthday-tree-/";
+    const VIDEO_FILE = "AQMolTvy69AaS3hMvOOfArgBPRO8UFwQ2WBpKeaYEe90RwFz2O8j_M1UNSb8RlFK4g7A59vpeuzEsqrzZiJVrZg7.mp4";
+    const IMAGE_FILE = "25995455d4d2cfec25c970bd882b187e.jpg";
+
+    // ==================== APP STATE ====================
+    let step = 1;
+    const content = document.getElementById('contentStage');
+    let activeVideo = null;
+
+    // Counter objects store attempt count and popupShown flag
+    let wrongCounters = {
+        q1: { value: 0, popupShown: false },
+        q2: { value: 0, popupShown: false },
+        q3: { value: 0, popupShown: false }
+    };
+
+    // Helper to show custom styled warning (replaces alert and works perfectly on all devices)
+    function showWarning(message) {
+        // Remove any existing warning to avoid stacking
+        const existing = document.querySelector('.custom-warning');
+        if (existing) existing.remove();
+        
+        const warnDiv = document.createElement('div');
+        warnDiv.className = 'custom-warning';
+        warnDiv.innerText = message;
+        document.body.appendChild(warnDiv);
+        
+        // Auto remove after 2.5 seconds
+        setTimeout(() => {
+            if (warnDiv && warnDiv.remove) warnDiv.remove();
+        }, 2500);
+    }
+
+    function render() {
+        if (step !== 5) removeVideo();
+        content.innerHTML = getHtml(step);
+        setTimeout(() => attachBehaviors(step), 60);
+    }
+
+    function getHtml(s) {
+        switch(s) {
+            case 1: return `
+                <div class="question-lux">Hey… are you my old boii?</div>
+                <div class="btn-stage" id="panel1">
+                    <button class="btn-velvet moving-btn" id="yes1">Yes</button>
+                    <button class="btn-velvet static-btn" id="no1">No</button>
+                </div>
+            `;
+            case 2: return `
+                <div class="question-lux">Ok so you are the new Sharoon — the one and only busiest girl in this universe</div>
+                <div class="btn-stage" id="panel2">
+                    <button class="btn-velvet static-btn" id="yes2">Yes</button>
+                    <button class="btn-velvet moving-btn" id="no2">No</button>
+                </div>
+            `;
+            case 3: return `
+                <div class="question-lux">Today is your birthday correct?</div>
+                <div class="btn-stage" id="panel3">
+                    <button class="btn-velvet static-btn" id="yes3">Yes</button>
+                    <button class="btn-velvet moving-btn" id="no3">No</button>
+                </div>
+            `;
+            case 4: return `
+                <img src="${IMAGE_FILE}" class="premium-img" onerror="this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1000&auto=format&fit=crop'">
+                <div class="img-caption">✨ Click next, I have a surprise for you.</div>
+                <button class="btn-velvet btn-gold" id="nextToVideo">Next</button>
+            `;
+            case 5: return `<div style="color:#c3b3ff; font-size:2rem;">✨ loading prank...</div>`;
+            case 6: return `
+                <div class="joke-lux">Just kidding 😄<br>I have a real surprise for you.</div>
+                <button class="btn-velvet btn-gold" id="nextToFinal">Next</button>
+            `;
+            default: return `<div>✨</div>`;
+        }
+    }
+
+    function attachBehaviors(s) {
+        if (s === 1) setupQ1();
+        if (s === 2) setupQ2();
+        if (s === 3) setupQ3();
+        if (s === 4) setupStep4();
+        if (s === 5) setupStep5();
+        if (s === 6) setupStep6();
+    }
+
+    function removeVideo() {
+        if (activeVideo) {
+            activeVideo.remove();
+            activeVideo = null;
+        }
+    }
+
+    // Enhanced moving button logic with safe repositioning and warning exactly after 3 attempts
+    function setupMovingButton(movingBtn, correctBtn, panelId, counterObj, warningMessage) {
+        const panel = document.getElementById(panelId);
+        if (!panel || !movingBtn || !correctBtn) return;
+
+        // Function to check if two elements overlap (bounding rect relative to panel)
+        const isOverlap = (movingRect, correctRect) => {
+            return !(movingRect.right <= correctRect.left ||
+                     movingRect.left >= correctRect.right ||
+                     movingRect.bottom <= correctRect.top ||
+                     movingRect.top >= correctRect.bottom);
+        };
+
+        const getNonOverlappingPosition = () => {
+            const panelRect = panel.getBoundingClientRect();
+            const correctRect = correctBtn.getBoundingClientRect();
+            
+            const movingW = movingBtn.offsetWidth;
+            const movingH = movingBtn.offsetHeight;
+            const correctW = correctBtn.offsetWidth;
+            const correctH = correctBtn.offsetHeight;
+            
+            // convert correctBtn absolute pos to relative offset inside panel
+            const correctLeftRel = correctRect.left - panelRect.left;
+            const correctTopRel = correctRect.top - panelRect.top;
+            
+            const maxLeft = Math.max(10, panelRect.width - movingW - 20);
+            const maxTop = Math.max(10, panelRect.height - movingH - 20);
+            const minLeft = 10;
+            const minTop = 10;
+            
+            let attempts = 0;
+            let newLeft, newTop;
+            let overlapping = true;
+            
+            while (overlapping && attempts < 200) {
+                newLeft = minLeft + Math.random() * (maxLeft - minLeft);
+                newTop = minTop + Math.random() * (maxTop - minTop);
+                
+                // Create virtual rects
+                const movingRect = {
+                    left: newLeft,
+                    right: newLeft + movingW,
+                    top: newTop,
+                    bottom: newTop + movingH
+                };
+                const correctRectRel = {
+                    left: correctLeftRel,
+                    right: correctLeftRel + correctW,
+                    top: correctTopRel,
+                    bottom: correctTopRel + correctH
+                };
+                
+                overlapping = !(movingRect.right <= correctRectRel.left ||
+                               movingRect.left >= correctRectRel.right ||
+                               movingRect.bottom <= correctRectRel.top ||
+                               movingRect.top >= correctRectRel.bottom);
+                attempts++;
+            }
+            
+            // clamp values
+            newLeft = Math.min(maxLeft, Math.max(minLeft, newLeft));
+            newTop = Math.min(maxTop, Math.max(minTop, newTop));
+            return { left: newLeft, top: newTop };
+        };
+        
+        const positionRandomly = () => {
+            if (!panel.contains(movingBtn)) return;
+            const { left, top } = getNonOverlappingPosition();
+            movingBtn.style.left = left + 'px';
+            movingBtn.style.top = top + 'px';
+            movingBtn.style.position = 'absolute';
+        };
+        
+        // Set correct button style: relative and centered
+        correctBtn.style.position = 'relative';
+        correctBtn.style.margin = '0 auto';
+        correctBtn.style.display = 'inline-block';
+        
+        // store original styles for moving button
+        movingBtn.style.position = 'absolute';
+        
+        // Track clicks (wrong attempts on moving button)
+        const clickHandler = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // increment wrong attempt counter
+            counterObj.value++;
+            
+            // AFTER 3 wrong attempts (counterObj.value >=3) show warning ONCE per question
+            if (counterObj.value >= 3 && !counterObj.popupShown) {
+                counterObj.popupShown = true;
+                showWarning(warningMessage);
+            }
+            
+            // reposition
+            positionRandomly();
+        };
+        
+        // mouseenter also triggers reposition (makes it even more "unclickable")
+        const mouseEnterHandler = () => {
+            // Only reposition if not already in final stage? we always reposition to make it tricky
+            positionRandomly();
+        };
+        
+        movingBtn.addEventListener('click', clickHandler);
+        movingBtn.addEventListener('mouseenter', mouseEnterHandler);
+        
+        // Also any pointer movement across panel? but fine. store handlers for cleanup if needed
+        movingBtn._clickHandler = clickHandler;
+        movingBtn._mouseHandler = mouseEnterHandler;
+        
+        // initial positioning
+        setTimeout(() => {
+            if (panel && panel.contains(movingBtn)) {
+                positionRandomly();
+            }
+            correctBtn.style.display = 'inline-block';
+        }, 20);
+        
+        // reposition on window resize
+        const resizeHandler = () => {
+            if (document.getElementById(panelId) && movingBtn && panel.contains(movingBtn)) {
+                positionRandomly();
+            }
+        };
+        window.addEventListener('resize', resizeHandler);
+        
+        // store cleanup reference
+        movingBtn._resizeHandler = resizeHandler;
+    }
+
+    function setupQ1() {
+        const yesBtn = document.getElementById('yes1');
+        const noBtn = document.getElementById('no1');
+        if (!yesBtn || !noBtn) return;
+        
+        // moving = Yes (wrong answer) , correct static = No (advances)
+        setupMovingButton(yesBtn, noBtn, 'panel1', wrongCounters.q1, 
+            "⚠️ Ab sahi answer click kar! ⚠️\n\n(ab to man ja sake tu badal gayi he harami)");
+        
+        noBtn.addEventListener('click', () => {
+            if (step === 1) {
+                step = 2;
+                render();
+            }
+        });
+        // safety prevent yes from advancing at any cost
+        yesBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // already handled in moving logic but block double
+            return false;
+        });
+    }
+
+    function setupQ2() {
+        const yesBtn = document.getElementById('yes2');
+        const noBtn = document.getElementById('no2');
+        if (!yesBtn || !noBtn) return;
+        
+        // moving button = No (incorrect), correct static = Yes
+        setupMovingButton(noBtn, yesBtn, 'panel2', wrongCounters.q2,
+            "⚠️ Bas ab yes pe click kar! ⚠️\n\n(note like me bola busyest he to he bas ab yes pe click kar chal)");
+        
+        yesBtn.addEventListener('click', () => {
+            if (step === 2) {
+                step = 3;
+                render();
+            }
+        });
+        noBtn.addEventListener('click', (e) => e.preventDefault());
+    }
+
+    function setupQ3() {
+        const yesBtn = document.getElementById('yes3');
+        const noBtn = document.getElementById('no3');
+        if (!yesBtn || !noBtn) return;
+        
+        // moving button = No, correct = Yes
+        setupMovingButton(noBtn, yesBtn, 'panel3', wrongCounters.q3,
+            "⚠️ Bas next pe click kar yarr plz! ⚠️\n\n(ha bas mera birthday he bas next pe click kar yarr plz)");
+        
+        yesBtn.addEventListener('click', () => {
+            if (step === 3) {
+                step = 4;
+                render();
+            }
+        });
+        noBtn.addEventListener('click', (e) => e.preventDefault());
+    }
+
+    function setupStep4() {
+        const nextBtn = document.getElementById('nextToVideo');
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                step = 5;
+                render();
+            });
+        }
+    }
+
+    function setupStep5() {
+        if (activeVideo) activeVideo.remove();
+        
+        const overlay = document.createElement('div');
+        overlay.className = 'video-overlay';
+        overlay.innerHTML = `
+            <video class="prank-video" autoplay playsinline disablePictureInPicture controlslist="nodownload nofullscreen noremote            padding: 3rem 2.5rem;
             transition: 0.3s;
             z-index: 10;
             position: relative;
