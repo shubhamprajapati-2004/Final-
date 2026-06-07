@@ -298,11 +298,13 @@
         }
     }
 
-    // Moving button function
+    // Moving button function - FIXED for laptop
     function setupMovingButton(movingBtn, correctBtn, panelId, counterObj, alertMessage) {
         const panel = document.getElementById(panelId);
         if (!panel || !movingBtn || !correctBtn) return;
 
+        let repositionTimeout = null;
+        
         const getNonOverlappingPosition = () => {
             const panelRect = panel.getBoundingClientRect();
             const correctRect = correctBtn.getBoundingClientRect();
@@ -323,8 +325,8 @@
             let overlapping;
             
             do {
-                newLeft = Math.min(maxLeft, Math.max(15, Math.random() * maxLeft));
-                newTop = Math.min(maxTop, Math.max(15, Math.random() * maxTop));
+                newLeft = Math.min(maxLeft, Math.max(15, 15 + Math.random() * (maxLeft - 15)));
+                newTop = Math.min(maxTop, Math.max(15, 15 + Math.random() * (maxTop - 15)));
                 
                 overlapping = !(newLeft + movingW < correctLeft || 
                                newLeft > correctLeft + correctW || 
@@ -338,6 +340,7 @@
         };
         
         const positionRandomly = () => {
+            if (!panel.contains(movingBtn)) return;
             const { left, top } = getNonOverlappingPosition();
             movingBtn.style.left = left + 'px';
             movingBtn.style.top = top + 'px';
@@ -348,11 +351,14 @@
         correctBtn.style.margin = '0 auto';
         correctBtn.style.display = 'inline-block';
         
+        // Click handler for wrong attempts
         movingBtn.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
 
             counterObj.value++;
+            
+            console.log("Wrong attempt count:", counterObj.value); // Debug log
 
             if (counterObj.value >= 3 && !counterObj.popupShown) {
                 counterObj.popupShown = true;
@@ -362,8 +368,17 @@
             positionRandomly();
         });
         
+        // Only reposition on mouseenter if less than 3 attempts OR warning not shown yet
         movingBtn.addEventListener('mouseenter', () => {
-            positionRandomly();
+            // Clear any pending timeout to avoid multiple rapid repositioning
+            if (repositionTimeout) clearTimeout(repositionTimeout);
+            
+            // Only move if we haven't shown the warning yet (keep annoying until they learn)
+            if (!counterObj.popupShown) {
+                repositionTimeout = setTimeout(() => {
+                    positionRandomly();
+                }, 10);
+            }
         });
         
         setTimeout(() => {
