@@ -349,19 +349,18 @@
         correctBtn.style.display = 'inline-block';
         
         movingBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            
-            if (counterObj.value < 3) {
-                counterObj.value++;
-            }
-            
-            positionRandomly();
-            
-            if (counterObj.value === 3 && !counterObj.popupShown) {
-                counterObj.popupShown = true;
-                alert(alertMessage);
-            }
-        });
+    e.preventDefault();
+    e.stopPropagation();
+
+    counterObj.value++;
+
+    if (counterObj.value >= 3 && !counterObj.popupShown) {
+        counterObj.popupShown = true;
+        alert(alertMessage);
+    }
+
+    positionRandomly();
+});
         
         movingBtn.addEventListener('mouseenter', () => {
             if (counterObj.value < 3 || !counterObj.popupShown) {
